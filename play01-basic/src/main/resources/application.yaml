@@ -1,0 +1,13 @@
+resilience4j:
+  bulkhead:
+    instances:
+      semaphore-04:
+        max-concurrent-calls: 20
+      semaphore-02:
+        max-concurrent-calls: 20
+  thread-pool-bulkhead:
+    instances:
+      thread-pool-03:
+        queue-capacity: 100
+      thread-pool-01:
+        queue-capacity: 100

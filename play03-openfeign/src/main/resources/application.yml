@@ -1,0 +1,37 @@
+spring:
+  application.name: resilience4j-play
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
+resilience4j:
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 1s
+  circuitbreaker:
+    instances:
+#      HttpBinFeignApistatusint:
+#        minimum-number-of-calls: 16
+      httpBinStatus:
+        minimum-number-of-calls: 8
+      greeting:
+        minimum-number-of-calls: 8
+
+  ratelimiter:
+    instances:
+      ktGreetingCtrl:
+        limit-for-period: 1
+        limit-refresh-period: 5s
+        timeout-duration: 100ms
+#      httpBinGet:
+#      httpBin:
+#      httpbin:
+#        limit-for-period: 1
+#        limit-refresh-period: 5s
+#        timeout-duration: 100ms
+      ktGreetingMethod:
+        limit-for-period: 10
+        limit-refresh-period: 5s
+        timeout-duration: 100ms

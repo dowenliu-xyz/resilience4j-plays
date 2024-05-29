@@ -1,0 +1,9 @@
+GET localhost:8080/scores
+
+###
+
+GET localhost:8080/scores2
+
+###
+
+GET localhost:8080/httpbin/get

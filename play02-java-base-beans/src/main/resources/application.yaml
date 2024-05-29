@@ -1,0 +1,6 @@
+spring:
+  aop:
+    # Default true.
+    # When set to false, some java-base beans that it's definition type is an interface
+    # will be jdk-proxied.
+    proxy-target-class: false
