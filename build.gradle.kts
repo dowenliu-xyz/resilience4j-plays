@@ -19,22 +19,22 @@ allprojects {
     extra["resilience4j.version"] = "2.2.0"
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-}
-
-configurations {
-    compileOnly {
-        extendsFrom(configurations.annotationProcessor.get())
-    }
-}
-
 subprojects {
     apply {
         plugin("org.springframework.boot")
         plugin("io.spring.dependency-management")
         plugin("org.jetbrains.kotlin.jvm")
         plugin("org.jetbrains.kotlin.plugin.spring")
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom(configurations.annotationProcessor.get())
+        }
     }
 
     dependencyManagement {
@@ -46,6 +46,7 @@ subprojects {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs += "-Xjsr305=strict"
+            freeCompilerArgs += "-Xjvm-default=all"
             jvmTarget = "17"
         }
     }
