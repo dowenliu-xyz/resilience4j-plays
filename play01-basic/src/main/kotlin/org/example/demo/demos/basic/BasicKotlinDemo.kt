@@ -1,30 +1,23 @@
 package org.example.demo.demos.basic
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
-import org.example.demo.biz.Greeting
-import org.slf4j.LoggerFactory
+import org.example.demo.biz.Greeting.doFallback
+import org.example.demo.biz.Greeting.doGreeting
 import org.springframework.stereotype.Component
 
-@Suppress("unused", "UNUSED_PARAMETER")
+@Suppress("unused")
 @Component
 class BasicKotlinDemo {
-    companion object {
-        private val log = LoggerFactory.getLogger(BasicKotlinDemo::class.java)
-    }
-
-
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     fun greeting(name: String?): String {
-        return Greeting.doGreeting(name)
+        return doGreeting(name)
     }
 
-    private fun fallback2(name: String?, thr: Throwable): String {
-        log.error("Something wrong", thr)
-        return "Hello there"
+    private fun fallback(name: String?, thr: Throwable): String {
+        return doFallback(name, thr)
     }
 
     private fun fallback(thr: Throwable): String {
-        log.error("Something wrong", thr)
-        return "Hello there"
+        return doFallback(thr)
     }
 }

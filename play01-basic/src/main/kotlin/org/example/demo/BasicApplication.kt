@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class BfmApplication
+class BasicApplication
 
 fun main(args: Array<String>) {
-    runApplication<BfmApplication>(*args)
+    runApplication<BasicApplication>(*args)
 }

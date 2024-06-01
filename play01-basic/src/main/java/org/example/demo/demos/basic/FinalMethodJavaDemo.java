@@ -6,11 +6,10 @@ import org.springframework.stereotype.Component;
 import static org.example.demo.biz.Greeting.doFallback;
 import static org.example.demo.biz.Greeting.doGreeting;
 
-@SuppressWarnings("unused")
 @Component
-public class BasicJavaDemo {
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-    public String greeting(String name) {
+public class FinalMethodJavaDemo {
+    @CircuitBreaker(name = "demo", fallbackMethod = "fallback") // TODO 没有提示 final 方法 aspect 不生效
+    public final String greeting(String name) {
         return doGreeting(name);
     }
 

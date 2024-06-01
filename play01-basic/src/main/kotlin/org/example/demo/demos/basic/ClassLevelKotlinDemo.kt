@@ -2,24 +2,20 @@ package org.example.demo.demos.basic
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.demo.biz.Greeting
+import org.example.demo.biz.Greeting.doFallback
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
-@Suppress("unused", "UNUSED_PARAMETER")
+@Suppress("unused")
 @Component
-@CircuitBreaker(name = "demo")
+@CircuitBreaker(name = "demo", fallbackMethod = "fallback") // TODO 添加限流示例，会观察到 fallback 也被限流而不会被执行
 class ClassLevelKotlinDemo {
-    companion object {
-        private val log = LoggerFactory.getLogger(BasicKotlinDemo::class.java)
-    }
-
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
+    @CircuitBreaker(name = "demo")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
 
     private fun fallback(name: String?, thr: Throwable): String {
-        log.error("Something wrong", thr)
-        return "Hello there"
+        return doFallback(name, thr)
     }
 }
