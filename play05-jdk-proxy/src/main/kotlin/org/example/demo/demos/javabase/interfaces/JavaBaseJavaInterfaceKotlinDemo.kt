@@ -2,7 +2,6 @@ package org.example.demo.demos.javabase.interfaces
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.demo.biz.Biz
-import org.springframework.stereotype.Component
 
 open class JavaBaseJavaInterfaceKotlinDemo : JavaBaseJavaInterfaceForKotlin {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
