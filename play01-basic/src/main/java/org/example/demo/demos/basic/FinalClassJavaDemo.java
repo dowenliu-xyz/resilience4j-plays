@@ -6,9 +6,8 @@ import org.springframework.stereotype.Component;
 import static org.example.demo.biz.Greeting.doFallback;
 import static org.example.demo.biz.Greeting.doGreeting;
 
-// TODO 提示 final 类不能作为 Bean? 这似乎是 Spring 插件应该提供的功能，而不是 r4j 插件应该做的事。
-//      至少提示注解不生效。
 //@Component // Enable this will cause bootstrap failure.
+@CircuitBreaker(name = "demo")
 public final class FinalClassJavaDemo {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     public String greeting(String name) {

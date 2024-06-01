@@ -4,11 +4,11 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.demo.biz.Greeting
 import org.springframework.stereotype.Component
 
-// Kotlin spring 插件明确说明只对特定注解标注的类应用 allopen，java-base 配置的不会自动 open
-// 当前类为 final 的
-// 在 FinalClassConfig 类中解除注释来启用 bean
+
+// @Component 会使 allopen 插件把当前类编译为非 final 的.
+@Component
 @CircuitBreaker(name = "demo")
-class FinalClassKotlinDemo {
+class OpenedByKotlinSpringClassKotlinDemo {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
