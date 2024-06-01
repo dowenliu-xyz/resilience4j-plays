@@ -4,9 +4,10 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.demo.biz.Greeting
 import org.springframework.stereotype.Component
 
+@Suppress("unused")
 @Component
 class FinalMethodKotlinDemo {
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback") // TODO 没有提示 final 方法 aspect 不生效
+    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     final fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
