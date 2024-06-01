@@ -1,0 +1,9 @@
+spring:
+  aop:
+#    proxy-target-class: true # default, use cglib
+    proxy-target-class: false # enable jdk-proxy
+resilience4j:
+  circuitbreaker:
+    instances:
+      demo:
+        minimum-number-of-calls: 100
