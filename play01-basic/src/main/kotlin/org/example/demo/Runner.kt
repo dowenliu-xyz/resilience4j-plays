@@ -21,9 +21,6 @@ class Runner(
             expectFallbackNotTakeEffect(finalMethodJavaDemo::greeting)
             expectFallbackNotTakeEffect(finalMethodKotlinDemo::greeting)
         }
-        run {
-
-        }
     }
 }
 
@@ -41,12 +38,12 @@ internal fun expectConflict(function: (String) -> String) {
     }
 }
 
-internal fun expectFallbackNotTakeEffect(function: (String) -> String, aspectClass: String = "CircuitBreakerAspect") {
+internal fun expectFallbackNotTakeEffect(function: (String) -> String) {
     try {
         val result = function("")
-        throw AssertionError("expect error, but got \"$result\"")
+        throw AssertionError("expect fallback does not take effect, but got \"$result\"")
     } catch (e: IllegalArgumentException) {
-        if (e.stackTrace.any { it.className.contains(aspectClass) }) {
+        if (e.stackTrace.any { it.className.startsWith("io.github.resilience4j.spring") }) {
             throw AssertionError("expect aspect not take effect", e)
         }
         e.message?.let {
@@ -54,7 +51,7 @@ internal fun expectFallbackNotTakeEffect(function: (String) -> String, aspectCla
         }
         throw e
     } catch (e: Throwable) {
-        if (e.stackTrace.any { it.className.contains(aspectClass) }) {
+        if (e.stackTrace.any { it.className.startsWith("io.github.resilience4j.spring") }) {
             throw AssertionError("expect aspect not take effect", e)
         }
         throw e
