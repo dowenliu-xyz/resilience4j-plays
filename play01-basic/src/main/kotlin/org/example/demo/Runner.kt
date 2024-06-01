@@ -41,18 +41,15 @@ internal fun expectConflict(function: (String) -> String) {
 internal fun expectFallbackNotTakeEffect(function: (String) -> String) {
     try {
         val result = function("")
+        // Fallback takes effect
         throw AssertionError("expect fallback does not take effect, but got \"$result\"")
-    } catch (e: IllegalArgumentException) {
+    } catch (e: Throwable) {
+        // Fallback does not take effect, but we have to check whether aspect takes effect.
         if (e.stackTrace.any { it.className.startsWith("io.github.resilience4j.spring") }) {
             throw AssertionError("expect aspect not take effect", e)
         }
         e.message?.let {
-            if ("name is null or empty" == it) return
-        }
-        throw e
-    } catch (e: Throwable) {
-        if (e.stackTrace.any { it.className.startsWith("io.github.resilience4j.spring") }) {
-            throw AssertionError("expect aspect not take effect", e)
+            if ("name is null or empty" == it && e is IllegalArgumentException) return
         }
         throw e
     }

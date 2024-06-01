@@ -5,10 +5,13 @@ import org.example.demo.biz.Greeting
 import org.springframework.stereotype.Component
 
 @Suppress("unused")
-@Component
-class FinalMethodKotlinDemo {
+// This is a Java-based container configured bean.
+// If we turn this into an annotation-based container configured bean,
+// kotlin's spring plugin will "open" all it's methods.
+open class FinalMethodKotlinDemo {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-    final fun greeting(name: String?): String {
+    // This method is not open
+    fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
 

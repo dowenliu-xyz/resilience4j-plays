@@ -2,7 +2,6 @@ package org.example.demo.demos.basic
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.demo.biz.Greeting
-import org.springframework.stereotype.Component
 
 // Kotlin's spring plugin only opens classes which annotated with specified annotations.
 // Java-base container configured bean class won't be opened.
