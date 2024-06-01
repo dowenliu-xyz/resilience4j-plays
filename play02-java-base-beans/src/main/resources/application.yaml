@@ -1,6 +1,6 @@
 spring:
   aop:
     # Default true.
-    # When set to false, some java-base beans that it's definition type is an interface
-    # will be jdk-proxied.
+    # When set to false, beans that should be aop proxied and has implements any interface will be jdk-proxied.
+    # TODO 当启用 jdk proxy 时，只要 bean (必须是需要被 AOP 增强的 bean) 有实现接口，不管如何配置的，都会是 jdk-proxied ，不只局限于 java-base 配置。不需要 AOP 增强的 bean 不会被代理，不管是否实现接口。
     proxy-target-class: false
