@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component
 // If we turn this into an annotation-based container configured bean,
 // kotlin's spring plugin will "open" all it's methods.
 open class FinalMethodKotlinDemo {
+    // This method is not open, and annotation will not take effect.
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-    // This method is not open
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

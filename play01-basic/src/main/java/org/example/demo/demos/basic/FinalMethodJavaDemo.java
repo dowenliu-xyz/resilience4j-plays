@@ -9,6 +9,7 @@ import static org.example.demo.biz.Greeting.doGreeting;
 @SuppressWarnings("unused")
 @Component
 public class FinalMethodJavaDemo {
+    // This method is final, and annotation will not take effect.
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     public final String greeting(String name) {
         return doGreeting(name);
