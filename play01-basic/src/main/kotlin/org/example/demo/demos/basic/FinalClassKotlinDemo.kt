@@ -4,9 +4,9 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.demo.biz.Greeting
 import org.springframework.stereotype.Component
 
-// Kotlin spring 插件明确说明只对特定注解标注的类应用 allopen，java-base 配置的不会自动 open
-// 当前类为 final 的
-// 在 FinalClassConfig 类中解除注释来启用 bean
+// Kotlin's spring plugin only opens classes which annotated with specified annotations.
+// Java-base container configured bean class won't be opened.
+// This class will be compiled to a final class.
 @CircuitBreaker(name = "demo")
 class FinalClassKotlinDemo {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
