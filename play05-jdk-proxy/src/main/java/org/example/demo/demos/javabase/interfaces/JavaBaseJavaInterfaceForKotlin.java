@@ -3,6 +3,7 @@ package org.example.demo.demos.javabase.interfaces;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("unused")
 public interface JavaBaseJavaInterfaceForKotlin {
     @NotNull
     String greeting(@Nullable String name);

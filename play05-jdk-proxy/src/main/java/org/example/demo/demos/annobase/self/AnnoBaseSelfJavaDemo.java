@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import static org.example.demo.biz.Biz.doFallback;
 import static org.example.demo.biz.Biz.doGreeting;
 
+@SuppressWarnings("unused")
 @Component
 public class AnnoBaseSelfJavaDemo {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")

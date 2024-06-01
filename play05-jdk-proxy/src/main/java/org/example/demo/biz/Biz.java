@@ -12,6 +12,7 @@ public abstract class Biz {
         return "Hello " + name + "!";
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static @NotNull String doFallback(@Nullable String name, @Nullable Throwable e) {
         return "fallback";
     }
