@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("org.springframework.boot") version "3.2.6"
@@ -31,6 +31,13 @@ subprojects {
         sourceCompatibility = JavaVersion.VERSION_17
     }
 
+    kotlin {
+        compilerOptions {
+            freeCompilerArgs.addAll("-Xjsr305=strict", "-Xjvm-default=all")
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
+    }
+
     configurations {
         compileOnly {
             extendsFrom(configurations.annotationProcessor.get())
@@ -40,14 +47,6 @@ subprojects {
     dependencyManagement {
         imports {
             mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
-        }
-    }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs += "-Xjsr305=strict"
-            freeCompilerArgs += "-Xjvm-default=all"
-            jvmTarget = "17"
         }
     }
 
