@@ -1,20 +1,14 @@
 package org.example.demo;
 
 import lombok.RequiredArgsConstructor;
-import org.example.demo.demos.annobase.interfaces.AnnoBaseJavaInterfaceForJava;
-import org.example.demo.demos.annobase.interfaces.AnnoBaseJavaInterfaceForKotlin;
-import org.example.demo.demos.annobase.interfaces.AnnoBaseKotlinInterfaceForJava;
-import org.example.demo.demos.annobase.interfaces.AnnoBaseKotlinInterfaceForKotlin;
+import org.example.demo.demos.annobase.interfaces.*;
 import org.example.demo.demos.annobase.parents.AnnoBaseJavaParentJavaDemo;
 import org.example.demo.demos.annobase.parents.AnnoBaseJavaParentKotlinDemo;
 import org.example.demo.demos.annobase.parents.AnnoBaseKotlinParentJavaDemo;
 import org.example.demo.demos.annobase.parents.AnnoBaseKotlinParentKotlinDemo;
 import org.example.demo.demos.annobase.self.AnnoBaseSelfJavaDemo;
 import org.example.demo.demos.annobase.self.AnnoBaseSelfKotlinDemo;
-import org.example.demo.demos.javabase.interfaces.JavaBaseJavaInterfaceForJava;
-import org.example.demo.demos.javabase.interfaces.JavaBaseJavaInterfaceForKotlin;
-import org.example.demo.demos.javabase.interfaces.JavaBaseKotlinInterfaceForJava;
-import org.example.demo.demos.javabase.interfaces.JavaBaseKotlinInterfaceForKotlin;
+import org.example.demo.demos.javabase.interfaces.*;
 import org.example.demo.demos.javabase.parents.JavaBaseJavaParentJavaDemo;
 import org.example.demo.demos.javabase.parents.JavaBaseJavaParentKotlinDemo;
 import org.example.demo.demos.javabase.parents.JavaBaseKotlinParentJavaDemo;
@@ -53,6 +47,22 @@ public class Runner implements CommandLineRunner {
     private final JavaBaseJavaInterfaceForKotlin javaBaseJavaInterfaceForKotlin;
     private final JavaBaseKotlinInterfaceForJava javaBaseKotlinInterfaceForJava;
     private final JavaBaseKotlinInterfaceForKotlin javaBaseKotlinInterfaceForKotlin;
+    private final AnnoBaseFallbackDefaultJavaInterfaceForJava annoBaseFallbackDefaultJavaInterfaceForJava;
+    private final AnnoBaseFallbackDefaultJavaInterfaceForKotlin annoBaseFallbackDefaultJavaInterfaceForKotlin;
+    private final AnnoBaseFallbackDefaultKotlinInterfaceForJava annoBaseFallbackDefaultKotlinInterfaceForJava;
+    private final AnnoBaseFallbackDefaultKotlinInterfaceForKotlin annoBaseFallbackDefaultKotlinInterfaceForKotlin;
+    private final JavaBaseFallbackDefaultJavaInterfaceForJava javaBaseFallbackDefaultJavaInterfaceForJava;
+    private final JavaBaseFallbackDefaultJavaInterfaceForKotlin javaBaseFallbackDefaultJavaInterfaceForKotlin;
+    private final JavaBaseFallbackDefaultKotlinInterfaceForJava javaBaseFallbackDefaultKotlinInterfaceForJava;
+    private final JavaBaseFallbackDefaultKotlinInterfaceForKotlin javaBaseFallbackDefaultKotlinInterfaceForKotlin;
+    private final AnnoBaseFallbackDefaultOverriddenJavaInterfaceForJava annoBaseFallbackDefaultOverriddenJavaInterfaceForJava;
+    private final AnnoBaseFallbackDefaultOverriddenJavaInterfaceForKotlin annoBaseFallbackDefaultOverriddenJavaInterfaceForKotlin;
+    private final AnnoBaseFallbackDefaultOverriddenKotlinInterfaceForJava annoBaseFallbackDefaultOverriddenKotlinInterfaceForJava;
+    private final AnnoBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin annoBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin;
+    private final JavaBaseFallbackDefaultOverriddenJavaInterfaceForJava javaBaseFallbackDefaultOverriddenJavaInterfaceForJava;
+    private final JavaBaseFallbackDefaultOverriddenJavaInterfaceForKotlin javaBaseFallbackDefaultOverriddenJavaInterfaceForKotlin;
+    private final JavaBaseFallbackDefaultOverriddenKotlinInterfaceForJava javaBaseFallbackDefaultOverriddenKotlinInterfaceForJava;
+    private final JavaBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin javaBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin;
 
     @Override
     public void run(String... args) {
@@ -101,6 +111,42 @@ public class Runner implements CommandLineRunner {
             expectAspectTakeEffectButFallbackNotTakeEffect(javaBaseKotlinInterfaceForJava::greeting);
             expectProxyType(javaBaseKotlinInterfaceForKotlin, ProxyType.JDK);
             expectAspectTakeEffectButFallbackNotTakeEffect(javaBaseKotlinInterfaceForKotlin::greeting);
+        }
+        {
+            expectProxyType(annoBaseFallbackDefaultJavaInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultJavaInterfaceForJava::greeting);
+            expectProxyType(annoBaseFallbackDefaultJavaInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultJavaInterfaceForKotlin::greeting);
+            expectProxyType(annoBaseFallbackDefaultKotlinInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultKotlinInterfaceForJava::greeting);
+            expectProxyType(annoBaseFallbackDefaultKotlinInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultKotlinInterfaceForKotlin::greeting);
+            expectProxyType(javaBaseFallbackDefaultJavaInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultJavaInterfaceForJava::greeting);
+            expectProxyType(javaBaseFallbackDefaultJavaInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultJavaInterfaceForKotlin::greeting);
+            expectProxyType(javaBaseFallbackDefaultKotlinInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultKotlinInterfaceForJava::greeting);
+            expectProxyType(javaBaseFallbackDefaultKotlinInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultKotlinInterfaceForKotlin::greeting);
+        }
+        {
+            expectProxyType(annoBaseFallbackDefaultOverriddenJavaInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultOverriddenJavaInterfaceForJava::greeting);
+            expectProxyType(annoBaseFallbackDefaultOverriddenJavaInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultOverriddenJavaInterfaceForKotlin::greeting);
+            expectProxyType(annoBaseFallbackDefaultOverriddenKotlinInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultOverriddenKotlinInterfaceForJava::greeting);
+            expectProxyType(annoBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(annoBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin::greeting);
+            expectProxyType(javaBaseFallbackDefaultOverriddenJavaInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultOverriddenJavaInterfaceForJava::greeting);
+            expectProxyType(javaBaseFallbackDefaultOverriddenJavaInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultOverriddenJavaInterfaceForKotlin::greeting);
+            expectProxyType(javaBaseFallbackDefaultOverriddenKotlinInterfaceForJava, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultOverriddenKotlinInterfaceForJava::greeting);
+            expectProxyType(javaBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin, ProxyType.JDK);
+            expectFallbackTakeEffect(javaBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin::greeting);
         }
     }
 

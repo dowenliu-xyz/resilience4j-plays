@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component
 @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
 @Component
 class BasicClassAnnoKotlinDemo {
+    // TODO 生效注解 hint
     fun greeting(name: String): String {
         return Greeting.doGreeting(name)
     }

@@ -57,7 +57,48 @@ public class JavaConf {
         return new JavaBaseKotlinInterfaceJavaDemo();
     }
 
-    @Bean JavaBaseKotlinInterfaceForKotlin javaBaseKotlinInterfaceForKotlin() {
+    @Bean
+    public JavaBaseKotlinInterfaceForKotlin javaBaseKotlinInterfaceForKotlin() {
         return new JavaBaseKotlinInterfaceKotlinDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultJavaInterfaceForJava javaBaseFallbackDefaultJavaInterfaceForJava() {
+        return new JavaBaseFallbackDefaultJavaInterfaceJavaDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultJavaInterfaceForKotlin javaBaseFallbackDefaultJavaInterfaceForKotlin() {
+        return new JavaBaseFallbackDefaultJavaInterfaceKotlinDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultKotlinInterfaceForJava javaBaseFallbackDefaultKotlinInterfaceForJava() {
+        return new JavaBaseFallbackDefaultKotlinInterfaceJavaDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultKotlinInterfaceForKotlin javaBaseFallbackDefaultKotlinInterfaceForKotlin() {
+        return new JavaBaseFallbackDefaultKotlinInterfaceKotlinDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultOverriddenJavaInterfaceForJava javaBaseFallbackDefaultOverriddenJavaInterfaceForJava() {
+        return new JavaBaseFallbackDefaultOverriddenJavaInterfaceJavaDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultOverriddenJavaInterfaceForKotlin javaBaseFallbackDefaultOverriddenJavaInterfaceForKotlin() {
+        return new JavaBaseFallbackDefaultOverriddenJavaInterfaceKotlinDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultOverriddenKotlinInterfaceForJava javaBaseFallbackDefaultOverriddenKotlinInterfaceForJava() {
+        return new JavaBaseFallbackDefaultOverriddenKotlinInterfaceJavaDemo();
+    }
+
+    @Bean
+    public JavaBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin javaBaseFallbackDefaultOverriddenKotlinInterfaceForKotlin() {
+        return new JavaBaseFallbackDefaultOverriddenKotlinInterfaceKotlinDemo();
     }
 }
