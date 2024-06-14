@@ -5,7 +5,9 @@ import jakarta.annotation.Nullable;
 
 import static org.example.ae.biz.Greeting.doGreeting;
 
-public interface InterfaceOriginMethodDefaultMethodAnnoFallbackOverriddenJavaInterfaceForKotlin {
+public interface InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceForJava {
+    // TODO name 自动完成不工作
+    // TODO 没有正确解析 fallbackMethod
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     default String greeting(@Nullable String name) {
         return doGreeting(name);

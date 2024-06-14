@@ -6,7 +6,9 @@ import jakarta.annotation.Nullable;
 import static org.example.ae.biz.Greeting.doGreeting;
 
 public interface InterfaceOriginMethodDefaultMethodAnnoJavaInterfaceForJava {
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback") // TODO 没有找到 fallbackMethod
+    // TODO name 自动完成不工作
+    // TODO 没有正确解析 fallbackMethod
+    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     default String greeting(@Nullable String name) {
         return doGreeting(name);
     }

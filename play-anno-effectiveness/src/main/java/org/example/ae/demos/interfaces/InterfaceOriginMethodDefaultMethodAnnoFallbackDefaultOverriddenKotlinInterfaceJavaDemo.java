@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import static org.example.ae.biz.Greeting.doFallback;
 
 @Component
-public class InterfaceOriginMethodDefaultMethodAnnoFallbackOverriddenKotlinInterfaceJavaDemo implements InterfaceOriginMethodDefaultMethodAnnoFallbackOverriddenKotlinInterfaceForJava {
+public class InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceJavaDemo implements InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceForJava {
     @NotNull
     @Override
     public String fallback(String name, Throwable e) {

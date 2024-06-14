@@ -8,7 +8,7 @@ import static org.example.ae.biz.Greeting.doGreeting;
 
 @SuppressWarnings("unused")
 @Component
-public class InterfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceJavaDemo implements InterfaceOriginMethodDefaultMethodAnnoJavaInterfaceForJava {
+public class InterfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceJavaDemo implements InterfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceForJava {
     @Override
     public String greeting(@Nullable String name) {
         return doGreeting(name);

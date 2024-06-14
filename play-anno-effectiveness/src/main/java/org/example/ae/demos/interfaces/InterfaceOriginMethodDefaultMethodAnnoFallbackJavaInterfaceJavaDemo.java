@@ -6,4 +6,8 @@ import static org.example.ae.biz.Greeting.doFallback;
 
 @Component
 public class InterfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceJavaDemo implements InterfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceForJava {
+    @Override
+    public String fallback(String name, Throwable e) {
+        return doFallback(name, e);
+    }
 }

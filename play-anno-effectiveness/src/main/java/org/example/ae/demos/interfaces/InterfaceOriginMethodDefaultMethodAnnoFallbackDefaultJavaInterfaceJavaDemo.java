@@ -1,0 +1,7 @@
+package org.example.ae.demos.interfaces;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceJavaDemo implements InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceForJava {
+}
