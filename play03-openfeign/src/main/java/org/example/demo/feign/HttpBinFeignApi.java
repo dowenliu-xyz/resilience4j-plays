@@ -30,6 +30,18 @@ public interface HttpBinFeignApi {
     @GetMapping("/delay/{seconds}")
     JsonNode delay(@PathVariable int seconds);
 
+    default JsonNode fallbacks(int code, Throwable cause) {
+        LoggerFactory.getLogger(HttpBinFeignApi.class).error("fallbacks()ssssss", cause);
+        return new ObjectMapper().createObjectNode().put("fallback", "fallbacks")
+                .put("code", code).put("cause", cause.getMessage());
+    }
+
+    default JsonNode aFallback(int code, Throwable cause) {
+        LoggerFactory.getLogger(HttpBinFeignApi.class).error("aFallback()ssssss", cause);
+        return new ObjectMapper().createObjectNode().put("fallback", "aFallback")
+                .put("code", code).put("cause", cause.getMessage());
+    }
+
     @Component
     class HttpBinFeignApiFallbackFactory implements FallbackFactory<HttpBinFeignApi> {
         private static final Logger LOG = LoggerFactory.getLogger(HttpBinFeignApiFallbackFactory.class);
