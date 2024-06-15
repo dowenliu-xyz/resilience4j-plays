@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import static org.example.ae.interfaces.cglib.biz.Greeting.doGreeting;
 
 @Component
-public class Case198KotlinInterfaceJavaDemo implements Case198JavaInterfaceForKotlin {
+public class Case198KotlinInterfaceJavaDemo implements Case198KotlinInterfaceForJava {
 
     @NotNull
     @Override

@@ -10,7 +10,7 @@ import static org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveFallback.Fal
 import static org.example.ae.interfaces.cglib.biz.Greeting.doFallback;
 
 @Component
-public class Case041KotlinInterfaceJavaDemo implements Case041JavaInterfaceForKotlin {
+public class Case041KotlinInterfaceJavaDemo implements Case041KotlinInterfaceForJava {
 
     @NotNull
     @Override

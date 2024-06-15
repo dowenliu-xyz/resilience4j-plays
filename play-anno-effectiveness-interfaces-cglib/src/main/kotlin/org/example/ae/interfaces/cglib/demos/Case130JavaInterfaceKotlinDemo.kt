@@ -5,7 +5,7 @@ import org.example.ae.interfaces.cglib.biz.DemoCase
 import org.springframework.stereotype.Component
 
 @Component
-class Case130JavaInterfaceKotlinDemo : Case130KotlinInterfaceForJava {
+class Case130JavaInterfaceKotlinDemo : Case130JavaInterfaceForKotlin {
 
     override fun sn(): String {
         return "130"

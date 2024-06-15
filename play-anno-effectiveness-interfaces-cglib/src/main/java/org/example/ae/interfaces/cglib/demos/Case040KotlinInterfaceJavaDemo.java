@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import static org.example.ae.interfaces.cglib.biz.Greeting.doGreeting;
 
 @Component
-public class Case040KotlinInterfaceJavaDemo implements Case040JavaInterfaceForKotlin {
+public class Case040KotlinInterfaceJavaDemo implements Case040KotlinInterfaceForJava {
 
     @NotNull
     @Override

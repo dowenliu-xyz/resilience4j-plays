@@ -12,7 +12,7 @@ import static org.example.ae.interfaces.cglib.biz.Greeting.doFallback;
 
 @Component
 @CircuitBreaker(name = "demo", fallbackMethod = "classFallback")
-public class Case053KotlinInterfaceJavaDemo implements Case053JavaInterfaceForKotlin {
+public class Case053KotlinInterfaceJavaDemo implements Case053KotlinInterfaceForJava {
 
     @NotNull
     @Override

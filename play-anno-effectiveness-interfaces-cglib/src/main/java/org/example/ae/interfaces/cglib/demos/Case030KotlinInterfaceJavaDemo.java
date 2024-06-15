@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Case030KotlinInterfaceJavaDemo implements Case030JavaInterfaceForKotlin {
+public class Case030KotlinInterfaceJavaDemo implements Case030KotlinInterfaceForJava {
 
     @NotNull
     @Override

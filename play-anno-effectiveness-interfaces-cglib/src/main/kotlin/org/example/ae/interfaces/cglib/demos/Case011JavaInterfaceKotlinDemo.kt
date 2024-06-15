@@ -8,7 +8,7 @@ import org.example.ae.interfaces.cglib.biz.Greeting.doFallback
 import org.springframework.stereotype.Component
 
 @Component
-class Case011JavaInterfaceKotlinDemo : Case011KotlinInterfaceForJava {
+class Case011JavaInterfaceKotlinDemo : Case011JavaInterfaceForKotlin {
 
     override fun sn(): String {
         return "011"

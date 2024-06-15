@@ -12,7 +12,7 @@ import static org.example.ae.interfaces.cglib.biz.Greeting.doFallback;
 import static org.example.ae.interfaces.cglib.biz.Greeting.doGreeting;
 
 @Component
-public class Case185KotlinInterfaceJavaDemo implements Case185JavaInterfaceForKotlin {
+public class Case185KotlinInterfaceJavaDemo implements Case185KotlinInterfaceForJava {
 
     @NotNull
     @Override

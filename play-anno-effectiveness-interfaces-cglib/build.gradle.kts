@@ -15,10 +15,19 @@ tasks {
     create("generateDemos") {
         val basePkg = "org.example.ae.interfaces.cglib"
         doLast {
+            mkdirs(basePkg)
             val cases = generateCases()
             cases.forEach { generateDemo(basePkg, it) }
+            cases.forEach { generateCaseRunner(basePkg, it) }
         }
     }
+}
+
+fun mkdirs(basePkg: String) {
+    val javaPkgPath = "src/main/java/${basePkg.replace(".", "/")}/demos"
+    mkdir(javaPkgPath)
+    val kotlinPkgPath = "src/main/kotlin/${basePkg.replace(".", "/")}/demos"
+    mkdir(kotlinPkgPath)
 }
 
 fun generateCases(): List<Case> {
@@ -60,9 +69,7 @@ fun generateCases(): List<Case> {
 fun generateDemo(basePkg: String, case: Case) {
     logger.lifecycle("generateDemo: $case")
     val javaPkgPath = "src/main/java/${basePkg.replace(".", "/")}/demos"
-    mkdir(javaPkgPath)
     val kotlinPkgPath = "src/main/kotlin/${basePkg.replace(".", "/")}/demos"
-    mkdir(kotlinPkgPath)
     generateJavaInterface(javaPkgPath, basePkg, case, "Java")
     generateJavaDemo(javaPkgPath, basePkg, case, "Java")
     generateJavaInterface(javaPkgPath, basePkg, case, "Kotlin")
@@ -71,7 +78,6 @@ fun generateDemo(basePkg: String, case: Case) {
     generateJavaDemo(javaPkgPath, basePkg, case, "Kotlin")
     generateKotlinInterface(kotlinPkgPath, basePkg, case, "Kotlin")
     generateKotlinDemo(kotlinPkgPath, basePkg, case, "Kotlin")
-    generateRunner(javaPkgPath, basePkg, case)
 }
 
 fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLang: String) {
@@ -95,7 +101,7 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
     file.appendText(
         """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase;
+                    |import $basePkg.biz.DemoCase;
         """.trimMargin()
     )
     if (
@@ -116,9 +122,9 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
         file.appendText(
             """
                     |
-                    |import static org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveAnnotation.*;
-                    |import static org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveFallback.FallbackInInterface;
-                    |import static org.example.ae.interfaces.cglib.biz.Greeting.doFallback;
+                    |import static $basePkg.biz.DemoCase.EffectiveAnnotation.*;
+                    |import static $basePkg.biz.DemoCase.EffectiveFallback.FallbackInInterface;
+                    |import static $basePkg.biz.Greeting.doFallback;
             """.trimMargin()
         )
     }
@@ -126,7 +132,7 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
         file.appendText(
             """
                     |
-                    |import static org.example.ae.interfaces.cglib.biz.Greeting.doGreeting;
+                    |import static $basePkg.biz.Greeting.doGreeting;
             """.trimMargin()
         )
     }
@@ -281,9 +287,9 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
         file.appendText(
             """
                     |
-                    |import static org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveAnnotation.*;
-                    |import static org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveFallback.FallbackInClass;
-                    |import static org.example.ae.interfaces.cglib.biz.Greeting.doFallback;
+                    |import static $basePkg.biz.DemoCase.EffectiveAnnotation.*;
+                    |import static $basePkg.biz.DemoCase.EffectiveFallback.FallbackInClass;
+                    |import static $basePkg.biz.Greeting.doFallback;
             """.trimMargin()
         )
     }
@@ -291,7 +297,7 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
         file.appendText(
             """
                     |
-                    |import static org.example.ae.interfaces.cglib.biz.Greeting.doGreeting;
+                    |import static $basePkg.biz.Greeting.doGreeting;
             """.trimMargin()
         )
     }
@@ -313,7 +319,7 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
     file.appendText(
         """
                     |
-                    |public class $className implements Case${case.sn}JavaInterfaceFor${interfaceLang} {
+                    |public class $className implements Case${case.sn}${interfaceLang}InterfaceForJava {
                     |
                     |    @NotNull
                     |    @Override
@@ -440,16 +446,16 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
     file.appendText(
         """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase
+                    |import $basePkg.biz.DemoCase
         """.trimMargin()
     )
     if (case.fallbackInInterface == FallbackInInterface.Default) {
         file.appendText(
             """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveAnnotation.*
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveFallback.FallbackInInterface
-                    |import org.example.ae.interfaces.cglib.biz.Greeting.doFallback
+                    |import $basePkg.biz.DemoCase.EffectiveAnnotation.*
+                    |import $basePkg.biz.DemoCase.EffectiveFallback.FallbackInInterface
+                    |import $basePkg.biz.Greeting.doFallback
             """.trimMargin()
         )
     }
@@ -457,7 +463,7 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
         file.appendText(
             """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.Greeting.doGreeting
+                    |import $basePkg.biz.Greeting.doGreeting
             """.trimMargin()
         )
     }
@@ -574,16 +580,16 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
     file.appendText(
         """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase
+                    |import $basePkg.biz.DemoCase
         """.trimMargin()
     )
     if (case.hasFallbackInClass) {
         file.appendText(
             """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveAnnotation.*
-                    |import org.example.ae.interfaces.cglib.biz.DemoCase.EffectiveFallback.FallbackInClass
-                    |import org.example.ae.interfaces.cglib.biz.Greeting.doFallback
+                    |import $basePkg.biz.DemoCase.EffectiveAnnotation.*
+                    |import $basePkg.biz.DemoCase.EffectiveFallback.FallbackInClass
+                    |import $basePkg.biz.Greeting.doFallback
             """.trimMargin()
         )
     }
@@ -591,7 +597,7 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
         file.appendText(
             """
                     |
-                    |import org.example.ae.interfaces.cglib.biz.Greeting.doGreeting
+                    |import $basePkg.biz.Greeting.doGreeting
             """.trimMargin()
         )
     }
@@ -614,7 +620,7 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
     file.appendText(
         """
                     |
-                    |class $className : Case${case.sn}KotlinInterfaceFor${interfaceLang} {
+                    |class $className : Case${case.sn}${interfaceLang}InterfaceForKotlin {
                     |
                     |    override fun sn(): String {
                     |        return "${case.sn}"
@@ -698,17 +704,17 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
     )
 }
 
-fun generateRunner(pkgPath: String, basePkg: String, case: Case) {
+fun generateCaseRunner(basePkg: String, case: Case) {
     val className = "Case${case.sn}Runner"
+    val pkgPath = "src/main/java/${basePkg.replace(".", "/")}/demos"
     val file = File("$pkgPath/$className.java")
     file.writeText(
-        // language=java
         """
             package $basePkg.demos;
 
             import jakarta.annotation.Resource;
             import lombok.extern.slf4j.Slf4j;
-            import org.example.ae.interfaces.cglib.biz.DemoCase;
+            import $basePkg.biz.DemoCase;
             import org.springframework.boot.CommandLineRunner;
             import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
             import org.springframework.core.Ordered;
@@ -716,8 +722,8 @@ fun generateRunner(pkgPath: String, basePkg: String, case: Case) {
 
             import java.util.Objects;
 
-            import static org.example.ae.interfaces.cglib.biz.Run.detectEffectiveness;
-            import static org.example.ae.interfaces.cglib.biz.Run.detectProxyType;
+            import static $basePkg.biz.Run.detectEffectiveness;
+            import static $basePkg.biz.Run.detectProxyType;
 
             @ConditionalOnProperty(name = "run.only", havingValue = "case${case.sn}", matchIfMissing = true)
             @Component

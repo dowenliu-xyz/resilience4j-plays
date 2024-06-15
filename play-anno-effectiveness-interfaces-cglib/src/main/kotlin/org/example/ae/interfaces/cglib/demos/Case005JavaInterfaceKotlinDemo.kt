@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 
 @Component
 @CircuitBreaker(name = "demo", fallbackMethod = "classFallback")
-class Case005JavaInterfaceKotlinDemo : Case005KotlinInterfaceForJava {
+class Case005JavaInterfaceKotlinDemo : Case005JavaInterfaceForKotlin {
 
     override fun sn(): String {
         return "005"
