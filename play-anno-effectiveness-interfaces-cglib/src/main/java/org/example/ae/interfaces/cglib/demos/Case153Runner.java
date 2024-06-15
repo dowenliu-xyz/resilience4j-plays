@@ -32,7 +32,7 @@ public class Case153Runner implements CommandLineRunner, Ordered {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         String proxyType = verifyProxyType();
         if (!"Cglib".equals(proxyType)) {
             log.info("case 153 real proxy type is {}", proxyType);

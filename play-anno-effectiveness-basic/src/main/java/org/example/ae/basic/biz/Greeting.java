@@ -15,6 +15,7 @@ public abstract class Greeting {
         return "Hello, " + name + "!";
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static @NotNull String doFallback(@Nullable String ignoredName, @Nullable Throwable ignored) {
         return FALLBACK_RESULT;
     }

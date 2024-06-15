@@ -4,7 +4,6 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.ae.basic.biz.Greeting
 import org.springframework.stereotype.Component
 
-@Suppress("unused")
 @Component
 @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
 class FinalMethodClassAnnoKotlinDemo {

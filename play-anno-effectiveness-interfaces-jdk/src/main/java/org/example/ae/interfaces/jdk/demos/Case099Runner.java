@@ -40,7 +40,7 @@ public class Case099Runner implements CommandLineRunner, Ordered {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         String proxyType = verifyProxyType();
         if (!"JdkDynamic".equals(proxyType)) {
             log.info("case 099 real proxy type is {}", proxyType);

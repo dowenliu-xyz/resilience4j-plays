@@ -805,7 +805,7 @@ fun generateCaseRunner(basePkg: String, case: Case) {
                 }
 
                 @Override
-                public void run(String... args) throws Exception {
+                public void run(String... args) {
                     String proxyType = verifyProxyType();
                     if (!"JdkDynamic".equals(proxyType)) {
                         log.info("case ${case.sn} real proxy type is {}", proxyType);

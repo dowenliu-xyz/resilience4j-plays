@@ -1,0 +1,201 @@
+sn,ClassAnnotationOnSuper,OriginMethodInSuper,FallbackInSuper,ClassAnnotationOnSub,OriginMethodInSub,FallbackInSub,EffectiveAnnotation,EffectiveFallback
+001,Yes,NormalWithAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+002,Yes,NormalWithAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+003,Yes,NormalWithAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+004,Yes,NormalWithAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+005,Yes,NormalWithAnnotation,Normal,Yes,None,Yes,MethodAnnotationInSuper,FallbackInSub
+006,Yes,NormalWithAnnotation,Normal,Yes,None,No,MethodAnnotationInSuper,FallbackInSuper
+007,Yes,NormalWithAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+008,Yes,NormalWithAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+009,Yes,NormalWithAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+010,Yes,NormalWithAnnotation,Normal,No,WithoutAnnotation,No,None,None
+011,Yes,NormalWithAnnotation,Normal,No,None,Yes,MethodAnnotationInSuper,FallbackInSub
+012,Yes,NormalWithAnnotation,Normal,No,None,No,MethodAnnotationInSuper,FallbackInSuper
+013,Yes,NormalWithAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+014,Yes,NormalWithAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+015,Yes,NormalWithAnnotation,Abstract,Yes,None,Yes,MethodAnnotationInSuper,FallbackInSub
+016,Yes,NormalWithAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+017,Yes,NormalWithAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+018,Yes,NormalWithAnnotation,Abstract,No,None,Yes,MethodAnnotationInSuper,FallbackInSub
+019,Yes,NormalWithAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+020,Yes,NormalWithAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+021,Yes,NormalWithAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+022,Yes,NormalWithAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+023,Yes,NormalWithAnnotation,None,Yes,None,Yes,MethodAnnotationInSuper,FallbackInSub
+024,Yes,NormalWithAnnotation,None,Yes,None,No,SomeOne (MethodAnnotationInSuper),None
+025,Yes,NormalWithAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+026,Yes,NormalWithAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+027,Yes,NormalWithAnnotation,None,No,WithoutAnnotation,Yes,None,None
+028,Yes,NormalWithAnnotation,None,No,WithoutAnnotation,No,None,None
+029,Yes,NormalWithAnnotation,None,No,None,Yes,MethodAnnotationInSuper,FallbackInSub
+030,Yes,NormalWithAnnotation,None,No,None,No,SomeOne (MethodAnnotationInSuper),None
+031,Yes,NormalWithoutAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+032,Yes,NormalWithoutAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+033,Yes,NormalWithoutAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+034,Yes,NormalWithoutAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+035,Yes,NormalWithoutAnnotation,Normal,Yes,None,Yes,ClassAnnotationOnSub,FallbackInSub
+036,Yes,NormalWithoutAnnotation,Normal,Yes,None,No,ClassAnnotationOnSub,FallbackInSuper
+037,Yes,NormalWithoutAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+038,Yes,NormalWithoutAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+039,Yes,NormalWithoutAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+040,Yes,NormalWithoutAnnotation,Normal,No,WithoutAnnotation,No,None,None
+041,Yes,NormalWithoutAnnotation,Normal,No,None,Yes,None,None
+042,Yes,NormalWithoutAnnotation,Normal,No,None,No,None,None
+043,Yes,NormalWithoutAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+044,Yes,NormalWithoutAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+045,Yes,NormalWithoutAnnotation,Abstract,Yes,None,Yes,ClassAnnotationOnSub,FallbackInSub
+046,Yes,NormalWithoutAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+047,Yes,NormalWithoutAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+048,Yes,NormalWithoutAnnotation,Abstract,No,None,Yes,None,None
+049,Yes,NormalWithoutAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+050,Yes,NormalWithoutAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+051,Yes,NormalWithoutAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+052,Yes,NormalWithoutAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+053,Yes,NormalWithoutAnnotation,None,Yes,None,Yes,ClassAnnotationOnSub,FallbackInSub
+054,Yes,NormalWithoutAnnotation,None,Yes,None,No,SomeOne (ClassAnnotationOnSub),None
+055,Yes,NormalWithoutAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+056,Yes,NormalWithoutAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+057,Yes,NormalWithoutAnnotation,None,No,WithoutAnnotation,Yes,None,None
+058,Yes,NormalWithoutAnnotation,None,No,WithoutAnnotation,No,None,None
+059,Yes,NormalWithoutAnnotation,None,No,None,Yes,None,None
+060,Yes,NormalWithoutAnnotation,None,No,None,No,None,None
+061,Yes,AbstractWithAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+062,Yes,AbstractWithAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+063,Yes,AbstractWithAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+064,Yes,AbstractWithAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+065,Yes,AbstractWithAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+066,Yes,AbstractWithAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+067,Yes,AbstractWithAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+068,Yes,AbstractWithAnnotation,Normal,No,WithoutAnnotation,No,None,None
+069,Yes,AbstractWithAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+070,Yes,AbstractWithAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+071,Yes,AbstractWithAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+072,Yes,AbstractWithAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+073,Yes,AbstractWithAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+074,Yes,AbstractWithAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+075,Yes,AbstractWithAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+076,Yes,AbstractWithAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+077,Yes,AbstractWithAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+078,Yes,AbstractWithAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+079,Yes,AbstractWithAnnotation,None,No,WithoutAnnotation,Yes,None,None
+080,Yes,AbstractWithAnnotation,None,No,WithoutAnnotation,No,None,None
+081,Yes,AbstractWithoutAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+082,Yes,AbstractWithoutAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+083,Yes,AbstractWithoutAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+084,Yes,AbstractWithoutAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+085,Yes,AbstractWithoutAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+086,Yes,AbstractWithoutAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+087,Yes,AbstractWithoutAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+088,Yes,AbstractWithoutAnnotation,Normal,No,WithoutAnnotation,No,None,None
+089,Yes,AbstractWithoutAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+090,Yes,AbstractWithoutAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+091,Yes,AbstractWithoutAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+092,Yes,AbstractWithoutAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+093,Yes,AbstractWithoutAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+094,Yes,AbstractWithoutAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+095,Yes,AbstractWithoutAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+096,Yes,AbstractWithoutAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+097,Yes,AbstractWithoutAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+098,Yes,AbstractWithoutAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+099,Yes,AbstractWithoutAnnotation,None,No,WithoutAnnotation,Yes,None,None
+100,Yes,AbstractWithoutAnnotation,None,No,WithoutAnnotation,No,None,None
+101,No,NormalWithAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+102,No,NormalWithAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+103,No,NormalWithAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+104,No,NormalWithAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+105,No,NormalWithAnnotation,Normal,Yes,None,Yes,MethodAnnotationInSuper,FallbackInSub
+106,No,NormalWithAnnotation,Normal,Yes,None,No,MethodAnnotationInSuper,FallbackInSuper
+107,No,NormalWithAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+108,No,NormalWithAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+109,No,NormalWithAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+110,No,NormalWithAnnotation,Normal,No,WithoutAnnotation,No,None,None
+111,No,NormalWithAnnotation,Normal,No,None,Yes,MethodAnnotationInSuper,FallbackInSub
+112,No,NormalWithAnnotation,Normal,No,None,No,MethodAnnotationInSuper,FallbackInSuper
+113,No,NormalWithAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+114,No,NormalWithAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+115,No,NormalWithAnnotation,Abstract,Yes,None,Yes,MethodAnnotationInSuper,FallbackInSub
+116,No,NormalWithAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+117,No,NormalWithAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+118,No,NormalWithAnnotation,Abstract,No,None,Yes,MethodAnnotationInSuper,FallbackInSub
+119,No,NormalWithAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+120,No,NormalWithAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+121,No,NormalWithAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+122,No,NormalWithAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+123,No,NormalWithAnnotation,None,Yes,None,Yes,MethodAnnotationInSuper,FallbackInSub
+124,No,NormalWithAnnotation,None,Yes,None,No,SomeOne (MethodAnnotationInSuper),None
+125,No,NormalWithAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+126,No,NormalWithAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+127,No,NormalWithAnnotation,None,No,WithoutAnnotation,Yes,None,None
+128,No,NormalWithAnnotation,None,No,WithoutAnnotation,No,None,None
+129,No,NormalWithAnnotation,None,No,None,Yes,MethodAnnotationInSuper,FallbackInSub
+130,No,NormalWithAnnotation,None,No,None,No,SomeOne (MethodAnnotationInSuper),None
+131,No,NormalWithoutAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+132,No,NormalWithoutAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+133,No,NormalWithoutAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+134,No,NormalWithoutAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+135,No,NormalWithoutAnnotation,Normal,Yes,None,Yes,None,None
+136,No,NormalWithoutAnnotation,Normal,Yes,None,No,None,None
+137,No,NormalWithoutAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+138,No,NormalWithoutAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+139,No,NormalWithoutAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+140,No,NormalWithoutAnnotation,Normal,No,WithoutAnnotation,No,None,None
+141,No,NormalWithoutAnnotation,Normal,No,None,Yes,None,None
+142,No,NormalWithoutAnnotation,Normal,No,None,No,None,None
+143,No,NormalWithoutAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+144,No,NormalWithoutAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+145,No,NormalWithoutAnnotation,Abstract,Yes,None,Yes,None,None
+146,No,NormalWithoutAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+147,No,NormalWithoutAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+148,No,NormalWithoutAnnotation,Abstract,No,None,Yes,None,None
+149,No,NormalWithoutAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+150,No,NormalWithoutAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+151,No,NormalWithoutAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+152,No,NormalWithoutAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+153,No,NormalWithoutAnnotation,None,Yes,None,Yes,None,None
+154,No,NormalWithoutAnnotation,None,Yes,None,No,None,None
+155,No,NormalWithoutAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+156,No,NormalWithoutAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+157,No,NormalWithoutAnnotation,None,No,WithoutAnnotation,Yes,None,None
+158,No,NormalWithoutAnnotation,None,No,WithoutAnnotation,No,None,None
+159,No,NormalWithoutAnnotation,None,No,None,Yes,None,None
+160,No,NormalWithoutAnnotation,None,No,None,No,None,None
+161,No,AbstractWithAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+162,No,AbstractWithAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+163,No,AbstractWithAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+164,No,AbstractWithAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+165,No,AbstractWithAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+166,No,AbstractWithAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+167,No,AbstractWithAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+168,No,AbstractWithAnnotation,Normal,No,WithoutAnnotation,No,None,None
+169,No,AbstractWithAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+170,No,AbstractWithAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+171,No,AbstractWithAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+172,No,AbstractWithAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+173,No,AbstractWithAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+174,No,AbstractWithAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+175,No,AbstractWithAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+176,No,AbstractWithAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+177,No,AbstractWithAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+178,No,AbstractWithAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+179,No,AbstractWithAnnotation,None,No,WithoutAnnotation,Yes,None,None
+180,No,AbstractWithAnnotation,None,No,WithoutAnnotation,No,None,None
+181,No,AbstractWithoutAnnotation,Normal,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+182,No,AbstractWithoutAnnotation,Normal,Yes,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+183,No,AbstractWithoutAnnotation,Normal,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+184,No,AbstractWithoutAnnotation,Normal,Yes,WithoutAnnotation,No,ClassAnnotationOnSub,FallbackInSuper
+185,No,AbstractWithoutAnnotation,Normal,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+186,No,AbstractWithoutAnnotation,Normal,No,WithAnnotation,No,MethodAnnotationInSub,FallbackInSuper
+187,No,AbstractWithoutAnnotation,Normal,No,WithoutAnnotation,Yes,None,None
+188,No,AbstractWithoutAnnotation,Normal,No,WithoutAnnotation,No,None,None
+189,No,AbstractWithoutAnnotation,Abstract,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+190,No,AbstractWithoutAnnotation,Abstract,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+191,No,AbstractWithoutAnnotation,Abstract,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+192,No,AbstractWithoutAnnotation,Abstract,No,WithoutAnnotation,Yes,None,None
+193,No,AbstractWithoutAnnotation,None,Yes,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+194,No,AbstractWithoutAnnotation,None,Yes,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+195,No,AbstractWithoutAnnotation,None,Yes,WithoutAnnotation,Yes,ClassAnnotationOnSub,FallbackInSub
+196,No,AbstractWithoutAnnotation,None,Yes,WithoutAnnotation,No,SomeOne (ClassAnnotationOnSub),None
+197,No,AbstractWithoutAnnotation,None,No,WithAnnotation,Yes,MethodAnnotationInSub,FallbackInSub
+198,No,AbstractWithoutAnnotation,None,No,WithAnnotation,No,SomeOne (MethodAnnotationInSub),None
+199,No,AbstractWithoutAnnotation,None,No,WithoutAnnotation,Yes,None,None
+200,No,AbstractWithoutAnnotation,None,No,WithoutAnnotation,No,None,None

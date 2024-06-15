@@ -31,7 +31,7 @@ public class Runner implements CommandLineRunner {
     private final ProtectedMethodMethodAnnoKotlinDemo protectedMethodMethodAnnoKotlinDemo;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         // 无继承、实现关系，源方法与处理器都在同一类中。
         {
             // 类注解
