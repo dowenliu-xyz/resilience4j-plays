@@ -1,14 +1,13 @@
-package org.example.ae.demos.basic
+package org.example.ae.basic.demos
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
-import org.example.ae.biz.Greeting
-import org.springframework.stereotype.Component
+import org.example.ae.basic.biz.Greeting
 
+//@Component // Enable this will cause bootstrap failure.
+@Suppress("unused")
 @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-@Component
-class BasicClassAnnoKotlinDemo {
-    // TODO 生效注解 hint
-    fun greeting(name: String): String {
+final class FinalClassClassAnnoKotlinDemo {
+    fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
 

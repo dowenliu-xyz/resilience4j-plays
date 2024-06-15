@@ -1,14 +1,14 @@
-package org.example.ae.demos.basic
+package org.example.ae.basic.demos
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
-import org.example.ae.biz.Greeting
+import org.example.ae.basic.biz.Greeting
 import org.springframework.stereotype.Component
 
 @Suppress("unused")
 @Component
-@CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-class FinalMethodClassAnnoKotlinDemo {
+class FinalMethodMethodAnnoKotlinDemo {
     // This method is final, and annotation will not take effect.
+    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     final fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

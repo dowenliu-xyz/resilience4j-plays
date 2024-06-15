@@ -13,7 +13,7 @@ dependencies {
 
 tasks {
     create("genParentsMatrix") {
-        val input = "src/main/java/org/example/ae/parents_matrix.md"
+        val input = "parents_matrix.md"
         val distSrc = "src"
         val basePkg = "org.example.ae"
         doLast {

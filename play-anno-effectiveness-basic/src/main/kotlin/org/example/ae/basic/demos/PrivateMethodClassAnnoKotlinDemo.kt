@@ -1,25 +1,25 @@
-package org.example.ae.demos.basic
+package org.example.ae.basic.demos
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
-import org.example.ae.biz.Greeting
+import org.example.ae.basic.biz.Greeting
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class ProtectedMethodMethodAnnoKotlinDemo {
-    private var self: ProtectedMethodMethodAnnoKotlinDemo? = null
+@CircuitBreaker(name = "demo", fallbackMethod = "fallback")
+class PrivateMethodClassAnnoKotlinDemo {
+    private var self: PrivateMethodClassAnnoKotlinDemo? = null
 
     @Autowired
-    fun setSelf(self: ProtectedMethodMethodAnnoKotlinDemo?) {
+    fun setSelf(self: PrivateMethodClassAnnoKotlinDemo?) {
         this.self = self
     }
 
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-    protected fun greeting(name: String?): String {
+    private fun greeting(name: String): String {
         return Greeting.doGreeting(name)
     }
 
-    fun exportGreeting(name: String?): String {
+    fun exportGreeting(name: String): String {
         return self!!.greeting(name)
     }
 

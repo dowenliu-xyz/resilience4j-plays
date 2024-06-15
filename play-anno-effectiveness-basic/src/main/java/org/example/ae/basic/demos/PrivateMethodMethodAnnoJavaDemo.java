@@ -1,24 +1,24 @@
-package org.example.ae.demos.basic;
+package org.example.ae.basic.demos;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static org.example.ae.biz.Greeting.doFallback;
-import static org.example.ae.biz.Greeting.doGreeting;
+import static org.example.ae.basic.biz.Greeting.doFallback;
+import static org.example.ae.basic.biz.Greeting.doGreeting;
 
 @SuppressWarnings("unused")
 @Component
-public class ProtectedMethodMethodAnnoJavaDemo {
-    private ProtectedMethodMethodAnnoJavaDemo self;
+public class PrivateMethodMethodAnnoJavaDemo {
+    private PrivateMethodMethodAnnoJavaDemo self;
 
     @Autowired
-    public void setSelf(ProtectedMethodMethodAnnoJavaDemo self) {
+    public void setSelf(PrivateMethodMethodAnnoJavaDemo self) {
         this.self = self;
     }
 
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
-    protected String greeting(String name) {
+    @CircuitBreaker(name = "demo", fallbackMethod = "fallback") // TODO 应该提示 private 方法加注解无效（无意义）
+    private String greeting(String name) {
         return doGreeting(name);
     }
 

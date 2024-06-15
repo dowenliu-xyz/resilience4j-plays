@@ -1,7 +1,7 @@
-package org.example.ae.demos.basic
+package org.example.ae.basic.demos
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
-import org.example.ae.biz.Greeting
+import org.example.ae.basic.biz.Greeting
 import org.springframework.stereotype.Component
 
 @Component
