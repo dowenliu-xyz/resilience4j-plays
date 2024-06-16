@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import static org.example.ae.sic.biz.Greeting.doGreeting;
 
 @Component
-public class KotlinParentKotlinInterfaceJavaDemo extends KotlinParentForJava implements KotlinInterfaceForJava {
+public class Case01KotlinParentKotlinInterfaceJavaDemo extends KotlinParentForJava implements KotlinInterfaceForJava {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     @NotNull
     public String greeting(@Nullable String name) {

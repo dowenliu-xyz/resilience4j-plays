@@ -5,13 +5,13 @@ import org.example.ae.sic.biz.Greeting
 import org.springframework.stereotype.Component
 
 @Component
-class KotlinParentJavaInterfaceKotlinDemo : KotlinParentForKotlin(), JavaInterfaceForKotlin {
+class Case01JavaParentKotlinInterfaceKotlinDemo : JavaParentForKotlin(), KotlinInterfaceForKotlin {
     @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
 
     override fun fallback(name: String?, e: Throwable?): String {
-        return super<KotlinParentForKotlin>.fallback(name, e)
+        return super<JavaParentForKotlin>.fallback(name, e)
     }
 }
