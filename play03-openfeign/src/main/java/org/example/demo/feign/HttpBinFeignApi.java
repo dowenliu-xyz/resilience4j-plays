@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "httpBin", url = "https://httpbin.org"
         , fallbackFactory = HttpBinFeignApi.HttpBinFeignApiFallbackFactory.class
 )
-@CircuitBreaker(name = "httpBin", fallbackMethod = "fallbacks")
+//@CircuitBreaker(name = "httpBin", fallbackMethod = "fallbacks")
 public interface HttpBinFeignApi {
     @GetMapping("/status/{code}")
     @CircuitBreaker(name = "httpBinStatus", fallbackMethod = "aFallback")
@@ -31,16 +31,16 @@ public interface HttpBinFeignApi {
     JsonNode delay(@PathVariable int seconds);
 
     default JsonNode fallbacks(int code, Throwable cause) {
-        LoggerFactory.getLogger(HttpBinFeignApi.class).error("fallbacks()ssssss", cause);
-        return new ObjectMapper().createObjectNode().put("fallback", "fallbacks")
+        return new ObjectMapper().createObjectNode().put("annoFallback", "fallbacks")
                 .put("code", code).put("cause", cause.getMessage());
     }
 
     default JsonNode aFallback(int code, Throwable cause) {
-        LoggerFactory.getLogger(HttpBinFeignApi.class).error("aFallback()ssssss", cause);
-        return new ObjectMapper().createObjectNode().put("fallback", "aFallback")
+        return new ObjectMapper().createObjectNode().put("annoFallback", "aFallback")
                 .put("code", code).put("cause", cause.getMessage());
     }
+
+    JsonNode bFallback(int code, Throwable cause);
 
     @Component
     class HttpBinFeignApiFallbackFactory implements FallbackFactory<HttpBinFeignApi> {
@@ -56,20 +56,26 @@ public interface HttpBinFeignApi {
                 @Override
                 public JsonNode status(int code) {
                     LOG.info("fallback status:{}", code);
-                    return mapper.createObjectNode().put("fallback", "status")
+                    return mapper.createObjectNode().put("feignFallback", "status")
                             .put("cause", cause.getMessage());
                 }
 
                 @Override
                 public JsonNode get() {
                     LOG.info("fallback get()");
-                    return mapper.createObjectNode().put("fallback", "get");
+                    return mapper.createObjectNode().put("feignFallback", "get");
                 }
 
                 @Override
                 public JsonNode delay(int seconds) {
                     LOG.info("fallback delay({})", seconds);
-                    return mapper.createObjectNode().put("fallback", "delay");
+                    return mapper.createObjectNode().put("feignFallback", "delay");
+                }
+
+                @Override
+                public JsonNode bFallback(int code, Throwable cause) {
+                    return new ObjectMapper().createObjectNode().put("annoFallback", "bFallback")
+                            .put("code", code).put("cause", cause.getMessage());
                 }
             };
         }
