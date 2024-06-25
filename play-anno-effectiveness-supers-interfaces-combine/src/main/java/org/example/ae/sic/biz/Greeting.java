@@ -1,8 +1,10 @@
 package org.example.ae.sic.biz;
 
 import jakarta.annotation.Nullable;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
+@Slf4j
 public abstract class Greeting {
 
     public static final String FALLBACK_RESULT = "Hello, there";
@@ -17,6 +19,7 @@ public abstract class Greeting {
 
     @SuppressWarnings("SameReturnValue")
     public static @NotNull String doFallback(@Nullable String ignoredName, @Nullable Throwable ignored) {
+        log.info("caught", ignored);
         return FALLBACK_RESULT;
     }
 }
