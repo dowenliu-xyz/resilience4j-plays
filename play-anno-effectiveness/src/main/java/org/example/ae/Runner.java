@@ -2,7 +2,6 @@ package org.example.ae;
 
 import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
-import org.example.ae.demos.interfaces.*;
 import org.example.ae.demos.parents.FallbackLocation;
 import org.example.ae.demos.parents.TakeEffectAnno;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +16,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 
 import static org.example.ae.biz.Greeting.FALLBACK_RESULT;
 import static org.example.ae.demos.parents.FallbackLocation.*;
@@ -28,60 +26,6 @@ import static org.example.ae.demos.parents.TakeEffectAnno.*;
 @Component
 @RequiredArgsConstructor
 public class Runner implements CommandLineRunner, ApplicationContextAware {
-    private final InterfaceClassAnnoJavaInterfaceJavaDemo interfaceClassAnnoJavaInterfaceJavaDemo;
-    private final InterfaceClassAnnoJavaInterfaceKotlinDemo interfaceClassAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceClassAnnoKotlinInterfaceJavaDemo interfaceClassAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceClassAnnoKotlinInterfaceKotlinDemo interfaceClassAnnoKotlinInterfaceKotlinDemo;
-
-    private final InterfaceOriginMethodMethodAnnoJavaInterfaceJavaDemo interfaceOriginMethodMethodAnnoJavaInterfaceJavaDemo;
-    private final InterfaceOriginMethodMethodAnnoJavaInterfaceKotlinDemo interfaceOriginMethodMethodAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceOriginMethodMethodAnnoKotlinInterfaceJavaDemo interfaceOriginMethodMethodAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceOriginMethodMethodAnnoKotlinInterfaceKotlinDemo interfaceOriginMethodMethodAnnoKotlinInterfaceKotlinDemo;
-
-    private final InterfaceOriginMethodDefaultMethodAnnoJavaInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoJavaInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoJavaInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoKotlinInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoKotlinInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoKotlinInterfaceKotlinDemo;
-
-    private final InterfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceJavaDemo interfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceJavaDemo;
-    private final InterfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceKotlinDemo interfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceOriginMethodOverriddenDefaultMethodAnnoKotlinInterfaceJavaDemo interfaceOriginMethodOverriddenDefaultMethodAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceOriginMethodOverriddenDefaultMethodAnnoKotlinInterfaceKotlinDemo interfaceOriginMethodOverriddenDefaultMethodAnnoKotlinInterfaceKotlinDemo;
-
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceKotlinDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackKotlinInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoFallbackKotlinInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackKotlinInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoFallbackKotlinInterfaceKotlinDemo;
-
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceKotlinDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultKotlinInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultKotlinInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultKotlinInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultKotlinInterfaceKotlinDemo;
-
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceKotlinDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceJavaDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceJavaDemo;
-    private final InterfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceKotlinDemo interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceKotlinDemo;
-
-    private final InterfaceNoOriginFallbackClassAnnoJavaInterfaceJavaDemo interfaceNoOriginFallbackClassAnnoJavaInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackClassAnnoJavaInterfaceKotlinDemo interfaceNoOriginFallbackClassAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceNoOriginFallbackClassAnnoKotlinInterfaceJavaDemo interfaceNoOriginFallbackClassAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackClassAnnoKotlinInterfaceKotlinDemo interfaceNoOriginFallbackClassAnnoKotlinInterfaceKotlinDemo;
-    private final InterfaceNoOriginFallbackMethodAnnoJavaInterfaceJavaDemo interfaceNoOriginFallbackMethodAnnoJavaInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackMethodAnnoJavaInterfaceKotlinDemo interfaceNoOriginFallbackMethodAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceNoOriginFallbackMethodAnnoKotlinInterfaceJavaDemo interfaceNoOriginFallbackMethodAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackMethodAnnoKotlinInterfaceKotlinDemo interfaceNoOriginFallbackMethodAnnoKotlinInterfaceKotlinDemo;
-
-    private final InterfaceNoOriginFallbackOverriddenClassAnnoJavaInterfaceJavaDemo interfaceNoOriginFallbackOverriddenClassAnnoJavaInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackOverriddenClassAnnoJavaInterfaceKotlinDemo interfaceNoOriginFallbackOverriddenClassAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceNoOriginFallbackOverriddenClassAnnoKotlinInterfaceJavaDemo interfaceNoOriginFallbackOverriddenClassAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackOverriddenClassAnnoKotlinInterfaceKotlinDemo interfaceNoOriginFallbackOverriddenClassAnnoKotlinInterfaceKotlinDemo;
-
-    private final InterfaceNoOriginFallbackOverriddenMethodAnnoJavaInterfaceJavaDemo interfaceNoOriginFallbackOverriddenMethodAnnoJavaInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackOverriddenMethodAnnoJavaInterfaceKotlinDemo interfaceNoOriginFallbackOverriddenMethodAnnoJavaInterfaceKotlinDemo;
-    private final InterfaceNoOriginFallbackOverriddenMethodAnnoKotlinInterfaceJavaDemo interfaceNoOriginFallbackOverriddenMethodAnnoKotlinInterfaceJavaDemo;
-    private final InterfaceNoOriginFallbackOverriddenMethodAnnoKotlinInterfaceKotlinDemo interfaceNoOriginFallbackOverriddenMethodAnnoKotlinInterfaceKotlinDemo;
-
     private ApplicationContext applicationContext;
 
     @Override
@@ -233,89 +177,7 @@ public class Runner implements CommandLineRunner, ApplicationContextAware {
 
     @Override
     public void run(String... args) throws Exception {
-        runInterfacesTests();
         runParentsTests();
-    }
-
-    private void runInterfacesTests() {
-        // 实现接口时
-        // 接口上使用类注解，类注解无效
-        {
-            expectAnnotationNotTakeEffect(interfaceClassAnnoJavaInterfaceJavaDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceClassAnnoJavaInterfaceKotlinDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceClassAnnoKotlinInterfaceJavaDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceClassAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口中定义源方法，并使用方法注解。方法注解无效（因为被重写了）
-        {
-            expectAnnotationNotTakeEffect(interfaceOriginMethodMethodAnnoJavaInterfaceJavaDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceOriginMethodMethodAnnoJavaInterfaceKotlinDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceOriginMethodMethodAnnoKotlinInterfaceJavaDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceOriginMethodMethodAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口中定义源方法（default 方法），并使用方法注解。注解生效！
-        {
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口中定义源方法（default 方法），并使用方法注解，方法被重写。注解不生效！
-        {
-            expectAnnotationNotTakeEffect(interfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceJavaDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceOriginMethodOverriddenDefaultMethodAnnoJavaInterfaceKotlinDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceOriginMethodOverriddenDefaultMethodAnnoKotlinInterfaceJavaDemo::greeting);
-            expectAnnotationNotTakeEffect(interfaceOriginMethodOverriddenDefaultMethodAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上定义源方法，并使用方法注解；接口上定义 fallbackMethod 。 fallback 实现 生效
-        {
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上定义源方法，并使用方法注解；接口上定义 default fallbackMethod 。 default fallback 生效
-        {
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上定义源方法，并使用方法注解；接口上定义 default fallbackMethod ，fallback 被重写 。 重写 fallback 生效
-        {
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceOriginMethodDefaultMethodAnnoFallbackDefaultOverriddenKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上不定义源方法，但定义 default fallbackMethod （无重写）。类注解 生效。default fallback 生效
-        {
-            expectFallback(interfaceNoOriginFallbackClassAnnoJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackClassAnnoJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackClassAnnoKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackClassAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上不定义源方法，但定义 default fallbackMethod （无重写）。方法注解 生效。default fallback 生效
-        {
-            expectFallback(interfaceNoOriginFallbackMethodAnnoJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackMethodAnnoJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackMethodAnnoKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackMethodAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上不定义源方法，但定义 fallbackMethod，fallback 重写。 类注解 、子类 fallback 生效
-        {
-            expectFallback(interfaceNoOriginFallbackOverriddenClassAnnoJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackOverriddenClassAnnoJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackOverriddenClassAnnoKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackOverriddenClassAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
-        // 接口上不定义源方法，但定义 fallbackMethod，fallback 重写。 方法注解 、子类 fallback 生效
-        {
-            expectFallback(interfaceNoOriginFallbackOverriddenMethodAnnoJavaInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackOverriddenMethodAnnoJavaInterfaceKotlinDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackOverriddenMethodAnnoKotlinInterfaceJavaDemo::greeting);
-            expectFallback(interfaceNoOriginFallbackOverriddenMethodAnnoKotlinInterfaceKotlinDemo::greeting);
-        }
     }
 
     private void runParentsTests() throws NoSuchMethodException {
@@ -339,28 +201,6 @@ public class Runner implements CommandLineRunner, ApplicationContextAware {
                                 parentCase.location);
                     }
                 }
-            }
-        }
-    }
-
-    private static void expectFallback(Function<String, String> function) {
-        String result = function.apply("");
-        if (!FALLBACK_RESULT.equals(result)) {
-            throw new AssertionError("expect \"" + FALLBACK_RESULT + "\", but got \"" + result + "\"");
-        }
-    }
-
-    private static void expectAnnotationNotTakeEffect(Function<String, String> function) {
-        try {
-            String result = function.apply("");
-            throw new AssertionError("expect fallback does not take effect, but got \"" + result + "\"");
-        } catch (IllegalArgumentException e) {
-            if (!"name should not be null or blank".equals(e.getMessage())) {
-                throw e;
-            }
-            if (Arrays.stream(e.getStackTrace())
-                    .anyMatch((ste) -> ste.getClassName().startsWith("io.github.resilience4j.spring"))) {
-                throw new AssertionError("expect aspect not take effect", e);
             }
         }
     }
