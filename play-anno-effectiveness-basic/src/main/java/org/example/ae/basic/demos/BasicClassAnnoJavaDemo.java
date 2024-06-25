@@ -10,7 +10,6 @@ import static org.example.ae.basic.biz.Greeting.doGreeting;
 @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
 @Component
 public class BasicClassAnnoJavaDemo {
-    // TODO 生效注解 hint
     public String greeting(@NotNull String name) {
         return doGreeting(name);
     }

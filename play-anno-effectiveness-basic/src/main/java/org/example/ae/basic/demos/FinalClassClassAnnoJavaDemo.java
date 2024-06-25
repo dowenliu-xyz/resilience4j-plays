@@ -1,6 +1,7 @@
 package org.example.ae.basic.demos;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import org.springframework.stereotype.Component;
 
 import static org.example.ae.basic.biz.Greeting.doFallback;
 import static org.example.ae.basic.biz.Greeting.doGreeting;

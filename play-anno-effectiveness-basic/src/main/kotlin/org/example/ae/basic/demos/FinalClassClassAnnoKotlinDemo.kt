@@ -2,6 +2,7 @@ package org.example.ae.basic.demos
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.example.ae.basic.biz.Greeting
+import org.springframework.stereotype.Component
 
 //@Component // Enable this will cause bootstrap failure.
 @Suppress("unused")

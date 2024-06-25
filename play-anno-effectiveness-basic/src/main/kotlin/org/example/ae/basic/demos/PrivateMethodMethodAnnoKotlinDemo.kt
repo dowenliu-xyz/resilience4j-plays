@@ -14,7 +14,7 @@ class PrivateMethodMethodAnnoKotlinDemo {
         this.self = self
     }
 
-    @CircuitBreaker(name = "demo", fallbackMethod = "fallback") // TODO 应该提示 private 方法加注解无效（无意义）
+    @CircuitBreaker(name = "demo", fallbackMethod = "fallback")
     private fun greeting(name: String): String {
         return Greeting.doGreeting(name)
     }
