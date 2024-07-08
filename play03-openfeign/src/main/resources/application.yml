@@ -1,6 +1,13 @@
 spring:
   application.name: resilience4j-play
   cloud:
+    circuitbreaker:
+      bulkhead:
+        resilience4j:
+          enabled: true
+      resilience4j:
+        is-disable-thread-pool: false
+        is-disable-time-limiter: false
     openfeign:
       circuitbreaker:
         enabled: true
@@ -9,15 +16,29 @@ resilience4j:
   timelimiter:
     configs:
       default:
-        timeout-duration: 1s
+        timeout-duration: 10s
+    instances:
+      HttpBinFeignApidelayint:
+        timeout-duration: 10s
   circuitbreaker:
     instances:
-#      HttpBinFeignApistatusint:
-#        minimum-number-of-calls: 16
+      HttpBinFeignApistatusint:
+        minimum-number-of-calls: 16
       httpBinStatus:
         minimum-number-of-calls: 8
       greeting:
         minimum-number-of-calls: 8
+  thread-pool-bulkhead:
+    instances:
+      HttpBinFeignApidelayint:
+        queue-capacity: 1
+        core-thread-pool-size: 1
+        max-thread-pool-size: 1
+  bulkhead:
+    instances:
+      HttpBinFeignApidelayint:
+        max-concurrent-calls: 1
+        max-wait-duration: 100ms
 
   ratelimiter:
     instances:

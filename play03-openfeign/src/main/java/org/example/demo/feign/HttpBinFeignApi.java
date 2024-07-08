@@ -40,8 +40,6 @@ public interface HttpBinFeignApi {
                 .put("code", code).put("cause", cause.getMessage());
     }
 
-    JsonNode bFallback(int code, Throwable cause);
-
     @Component
     class HttpBinFeignApiFallbackFactory implements FallbackFactory<HttpBinFeignApi> {
         private static final Logger LOG = LoggerFactory.getLogger(HttpBinFeignApiFallbackFactory.class);
@@ -70,12 +68,6 @@ public interface HttpBinFeignApi {
                 public JsonNode delay(int seconds) {
                     LOG.info("fallback delay({})", seconds);
                     return mapper.createObjectNode().put("feignFallback", "delay");
-                }
-
-                @Override
-                public JsonNode bFallback(int code, Throwable cause) {
-                    return new ObjectMapper().createObjectNode().put("annoFallback", "bFallback")
-                            .put("code", code).put("cause", cause.getMessage());
                 }
             };
         }
