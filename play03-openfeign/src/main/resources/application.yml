@@ -4,13 +4,27 @@ spring:
     circuitbreaker:
       bulkhead:
         resilience4j:
+          # true by default.
+          # NOTICE: Detecting of this setting is ONLY supported by IDEA 2023.3.x and above.
           enabled: true
       resilience4j:
-        is-disable-thread-pool: false
-        is-disable-time-limiter: false
+        # false by default
+        # NOTICE: Detecting of this setting is ONLY supported by IDEA 2023.3.x and above.
+        disable-thread-pool: false
+        # false by default
+        # NOTICE: Detecting of this setting is ONLY supported by IDEA 2023.3.x and above.
+        disable-time-limiter: false
+        # false by default
+        # NOTICE: Detecting of this setting is ONLY supported by IDEA 2023.3.x and above.
+        enable-semaphore-default-bulkhead: false
     openfeign:
       circuitbreaker:
+        # false by default
         enabled: true
+        alphanumeric-ids:
+          # false by default with SpringCloud OpenFeign 3.x, and true by default with SpringCloud OpenFeign 4.x.
+          # current: SpringCloud OpenFeign 4.1.1, true by default
+          enabled: false
 
 resilience4j:
   timelimiter:
@@ -18,41 +32,33 @@ resilience4j:
       default:
         timeout-duration: 10s
     instances:
-      HttpBinFeignApidelayint:
+      HttpBinFeignApistatusint:
+        timeout-duration: 10s
+      HttpBinFeignApi#status(int):
         timeout-duration: 10s
   circuitbreaker:
     instances:
-      HttpBinFeignApistatusint:
-        minimum-number-of-calls: 16
       httpBinStatus:
         minimum-number-of-calls: 8
-      greeting:
-        minimum-number-of-calls: 8
+      HttpBinFeignApistatusint:
+        minimum-number-of-calls: 16
+      HttpBinFeignApi#status(int):
+        minimum-number-of-calls: 16
   thread-pool-bulkhead:
     instances:
-      HttpBinFeignApidelayint:
+      HttpBinFeignApistatusint:
+        queue-capacity: 1
+        core-thread-pool-size: 1
+        max-thread-pool-size: 1
+      HttpBinFeignApi#status(int):
         queue-capacity: 1
         core-thread-pool-size: 1
         max-thread-pool-size: 1
   bulkhead:
     instances:
-      HttpBinFeignApidelayint:
+      HttpBinFeignApistatusint:
         max-concurrent-calls: 1
         max-wait-duration: 100ms
-
-  ratelimiter:
-    instances:
-      ktGreetingCtrl:
-        limit-for-period: 1
-        limit-refresh-period: 5s
-        timeout-duration: 100ms
-#      httpBinGet:
-#      httpBin:
-#      httpbin:
-#        limit-for-period: 1
-#        limit-refresh-period: 5s
-#        timeout-duration: 100ms
-      ktGreetingMethod:
-        limit-for-period: 10
-        limit-refresh-period: 5s
-        timeout-duration: 100ms
+      HttpBinFeignApi#status(int):
+        max-concurrent-calls: 1
+        max-wait-duration: 100ms

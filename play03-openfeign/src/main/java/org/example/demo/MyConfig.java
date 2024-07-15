@@ -11,7 +11,6 @@ import java.lang.reflect.Method;
 public class MyConfig {
 //    @Bean
     public CircuitBreakerNameResolver circuitBreakerNameResolver() {
-//        return (feignClientName, target, method) -> "just a demo";
         return new MyResolver();
     }
 

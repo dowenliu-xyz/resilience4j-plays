@@ -16,14 +16,4 @@ public class HttpBinController {
     public JsonNode status(@PathVariable int code) {
         return httpBinFeignApi.status(code);
     }
-
-    @GetMapping("/httpbin/get")
-    public JsonNode get() {
-        return httpBinFeignApi.get();
-    }
-
-    @GetMapping("/httpbin/delay/{seconds}")
-    public JsonNode delay(@PathVariable int seconds) {
-        return httpBinFeignApi.delay(seconds);
-    }
 }
