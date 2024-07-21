@@ -1,3 +1,5 @@
+//extra["resilience4j.version"] = "2.0.1" // 2.2.0 by root project
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-aop")
