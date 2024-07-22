@@ -1,3 +1,5 @@
+//extra["resilience4j.version"] = "2.1.0" // 2.2.0 from root project.
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-web")

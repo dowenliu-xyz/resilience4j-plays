@@ -20,7 +20,7 @@ spring:
     openfeign:
       circuitbreaker:
         # false by default
-        enabled: true
+        enabled: false
         alphanumeric-ids:
           # false by default with SpringCloud OpenFeign 3.x, and true by default with SpringCloud OpenFeign 4.x.
           # current: SpringCloud OpenFeign 4.1.1, true by default
@@ -62,3 +62,7 @@ resilience4j:
       HttpBinFeignApi#status(int):
         max-concurrent-calls: 1
         max-wait-duration: 100ms
+  retry:
+    instances:
+      httpBinStatus:
+        max-attempts: 1
