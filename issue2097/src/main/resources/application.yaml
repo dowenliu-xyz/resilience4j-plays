@@ -1,0 +1,14 @@
+resilience4j:
+  retry:
+    configs:
+      default:
+        max-attempts: 5
+        wait-duration: 5000ms
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
+    instances:
+      foo:
+        enable-exponential-backoff: false
+        exponential-backoff-multiplier: 2
+        max-attempts: 5
+        wait-duration: 5000

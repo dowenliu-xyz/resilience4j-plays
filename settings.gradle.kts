@@ -1,4 +1,5 @@
 rootProject.name = "resilience4j-plays"
+include("issue2097")
 include("play01-basic")
 include("play02-java-base-beans")
 include("play03-openfeign")
